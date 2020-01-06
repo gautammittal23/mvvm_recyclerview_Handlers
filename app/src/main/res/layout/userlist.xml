@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout>
+    <data>
+
+        <!--This is to take viewmodel instance-->
+        <variable
+            name="viewModel"
+            type="com.app.mvvm_recyclerview.recyclerlist.ListViewModel" />
+
+
+        <!-- This one is to send model-->
+
+        <variable
+            name="data"
+            type="com.app.mvvm_recyclerview.data.model.User" />
+
+
+    </data>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:orientation="vertical"
+    android:backgroundTint="#EEB3B3"
+    android:padding="15dp">
+
+    <TextView
+        android:id="@+id/txtname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@{data.name}" />
+
+
+    <TextView
+        android:id="@+id/txtdesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@{data.desc}" />
+
+
+    <Button
+        android:id="@+id/btn_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="@{()->viewModel.onDelete(data)}"
+        android:text="Delete"/>
+
+    <Button
+        android:id="@+id/btn_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="@{()->viewModel.onEdit(data)}"
+        android:text="Edit"/>
+
+
+</LinearLayout>
+</layout>
